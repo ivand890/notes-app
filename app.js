@@ -2,7 +2,7 @@ import chalk from "chalk";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import validator from "validator";
-import getNotes from "./notes.js";
+import notes from "./notes.js";
 
 // colors for cli
 const INFO_COLOR = chalk.blue;
@@ -31,6 +31,7 @@ argv.command({
     console.log(INFO_COLOR("Adding new note ..."));
     console.log(`${INFO_COLOR("Title:")} ${argv.title}`);
     console.log(`${INFO_COLOR("Body:")} ${argv.body ? argv.body : ""}`);
+    notes.addNote(argv.title, argv.body);
   },
 });
 
